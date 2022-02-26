@@ -33,7 +33,11 @@
       "ecmaVersion": 6
     },
     "extends": [
-      "eslint:recommended"
+      "eslint:recommended",
+      "plugin:prettier/recommended"
+    ],
+    "plugins": [
+      "prettier"
     ],
     "env": {
       "node": true,
@@ -44,8 +48,12 @@
       "semi": "warn",
       "quotes": [
         "warn",
-        "single"
+        "double"
       ]
     }
+  },
+  "prettier": {
+    "semi": true,
+    "singleQuote": false
   }
 }
