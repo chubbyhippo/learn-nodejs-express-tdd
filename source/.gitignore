@@ -259,4 +259,4 @@ dist
 # SvelteKit build / generate output
 .svelte-kit
 
-# End of https://www.toptal.com/developers/gitignore/api/node,jetbrains+all,macos
+# End of https://www.toptal.com/developers/gitignore/api/node,jetbrains+all,macos!/.idea/codeStyles/
