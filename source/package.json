@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "test": "jest --watch"
+    "test": "jest --watch",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,7 @@
     "eslint-config-prettier": "^8.4.0",
     "eslint-plugin-prettier": "^4.0.0",
     "jest": "^27.5.1",
+    "nodemon": "^2.0.15",
     "prettier": "^2.5.1",
     "supertest": "^6.2.2"
   },
@@ -45,6 +47,7 @@
       "jest": true
     },
     "rules": {
+      "eqeqeq": "warn",
       "semi": "warn",
       "quotes": [
         "warn",
