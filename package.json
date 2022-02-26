@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/chubbyhippo/learn-nodejs-express-tdd/issues"
   },
-  "homepage": "https://github.com/chubbyhippo/learn-nodejs-express-tdd#readme"
+  "homepage": "https://github.com/chubbyhippo/learn-nodejs-express-tdd#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
 }
