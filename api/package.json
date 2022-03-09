@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/chubbyhippo/learn-nodejs-express-tdd#readme",
   "dependencies": {
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "sequelize": "^6.17.0"
   },
   "devDependencies": {
     "eslint": "^8.10.0",
