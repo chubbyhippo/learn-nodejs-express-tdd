@@ -50,8 +50,27 @@ describe("User Registration", () => {
       })
       .then(() => {
         // query the user table
-        User.findAll().then((value) => {
-          expect(value.length).toBe(1);
+        User.findAll().then((userList) => {
+          expect(userList.length).toBe(1);
+          done();
+        });
+      });
+  });
+
+  it("should save the username and email to database", (done) => {
+    request(app)
+      .post("/api/1.0/users")
+      .send({
+        username: "user1",
+        email: "user1@email.com",
+        password: "P4ssw0rd",
+      })
+      .then(() => {
+        // query the user table
+        User.findAll().then((userList) => {
+          const savedUser = userList[0];
+          expect(savedUser.username).toBe("user1");
+          expect(savedUser.email).toBe("user1@email.com");
           done();
         });
       });
