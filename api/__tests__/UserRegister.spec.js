@@ -7,6 +7,10 @@ beforeAll(() => {
   return sequelize.sync();
 });
 
+beforeEach(() => {
+  return User.destroy({ truncate: true });
+});
+
 describe("User Registration", () => {
   it("should return 200 OK when signup request is valid", (done) => {
     request(app)
