@@ -4,4 +4,4 @@ const sequelize = new Sequelize("hoaxify", "my-db-user", "db-p4ss", {
   storage: "./database.sqlite",
 });
 
-module.exports = sequelize;
+module.exports.default = sequelize;
