@@ -1,24 +1,21 @@
-const { Sequelize, Model } = require("sequelize");
-const sequelize = require("../config/database");
+const { Sequelize, DataTypes } = require("sequelize");
+// const sequelize = require("../config/database");
+const sequelize = new Sequelize("sqlite::memory:");
 
-class User extends Model {}
-
-User.init(
+const User = sequelize.define(
+  "User",
   {
     username: {
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
     },
     email: {
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
     },
     password: {
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
     },
   },
-  {
-    sequelize,
-    modelName: "user",
-  }
+  {}
 );
 
 module.exports = User;
