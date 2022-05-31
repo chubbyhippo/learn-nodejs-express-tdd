@@ -1,6 +1,5 @@
-const { Sequelize, DataTypes } = require("sequelize");
-// const sequelize = require("../config/database");
-const sequelize = new Sequelize("sqlite::memory:");
+const { DataTypes } = require("sequelize");
+const sequelize = require("../config/database").default;
 
 const User = sequelize.define(
   "User",
