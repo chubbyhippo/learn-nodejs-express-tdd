@@ -45,14 +45,11 @@ describe("User Registration", () => {
     expect(savedUser.email).toBe("user1@email.com");
   });
 
-  it("should hashes the password in database", (done) => {
-    postValidUser().then(() => {
-      // query the user table
-      User.findAll().then((userList) => {
-        const savedUser = userList[0];
-        expect(savedUser.password).not.toBe("P4ssw0rd");
-        done();
-      });
-    });
+  it("should hashes the password in database", async () => {
+    await postValidUser();
+    // query the user table
+    const userList = await User.findAll();
+    const savedUser = userList[0];
+    expect(savedUser.password).not.toBe("P4ssw0rd");
   });
 });
