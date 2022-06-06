@@ -36,16 +36,13 @@ describe("User Registration", () => {
     expect(userList.length).toBe(1);
   });
 
-  it("should save the username and email to database", (done) => {
-    postValidUser().then(() => {
-      // query the user table
-      User.findAll().then((userList) => {
-        const savedUser = userList[0];
-        expect(savedUser.username).toBe("user1");
-        expect(savedUser.email).toBe("user1@email.com");
-        done();
-      });
-    });
+  it("should save the username and email to database", async () => {
+    await postValidUser();
+    // query the user table
+    const userList = await User.findAll();
+    const savedUser = userList[0];
+    expect(savedUser.username).toBe("user1");
+    expect(savedUser.email).toBe("user1@email.com");
   });
 
   it("should hashes the password in database", (done) => {
