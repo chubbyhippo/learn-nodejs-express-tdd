@@ -19,11 +19,9 @@ describe("User Registration", () => {
       password: "P4ssw0rd",
     });
   };
-  it("should return 200 OK when signup request is valid", (done) => {
-    postValidUser().then((response) => {
-      expect(response.status).toBe(200);
-      done();
-    });
+  it("should return 200 OK when signup request is valid", async () => {
+    const response = await postValidUser();
+    expect(response.status).toBe(200);
   });
 
   it("should return success message when signup request is valid", (done) => {
