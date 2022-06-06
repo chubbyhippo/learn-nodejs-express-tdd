@@ -29,14 +29,11 @@ describe("User Registration", () => {
     expect(response.body.message).toBe("User created");
   });
 
-  it("should save the user to database", (done) => {
-    postValidUser().then(() => {
-      // query the user table
-      User.findAll().then((userList) => {
-        expect(userList.length).toBe(1);
-        done();
-      });
-    });
+  it("should save the user to database", async () => {
+    await postValidUser();
+    // query the user table
+    const userList = await User.findAll();
+    expect(userList.length).toBe(1);
   });
 
   it("should save the username and email to database", (done) => {
