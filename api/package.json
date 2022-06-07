@@ -20,6 +20,7 @@
   "homepage": "https://github.com/chubbyhippo/learn-nodejs-express-tdd#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "config": "^3.3.7",
     "express": "^4.17.3",
     "sequelize": "^6.17.0",
     "sqlite3": "^5.0.2"
