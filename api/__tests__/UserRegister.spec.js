@@ -66,4 +66,10 @@ describe("User Registration", () => {
     const response = await postUser(invalidUser);
     expect(response.status).toBe(400);
   });
+
+  it("should return validation errors field in response body when validation error occurs", async () => {
+    const response = await postUser(invalidUser);
+    const body = response.body;
+    expect(body.validationErrors).not.toBeUndefined();
+  });
 });
