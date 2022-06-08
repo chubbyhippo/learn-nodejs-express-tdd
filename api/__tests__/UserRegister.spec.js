@@ -17,12 +17,6 @@ const validUser = {
   password: "P4ssw0rd",
 };
 
-const invalidUser = {
-  username: null,
-  email: "user1@email.com",
-  password: "P4ssw0rd",
-};
-
 const postUser = (user) => {
   return request(app).post("/api/1.0/users").send(user);
 };
@@ -63,12 +57,20 @@ describe("User Registration", () => {
   });
 
   it("should return 400 when username is null", async () => {
-    const response = await postUser(invalidUser);
+    const response = await postUser({
+      username: null,
+      email: "user1@email.com",
+      password: "P4ssw0rd",
+    });
     expect(response.status).toBe(400);
   });
 
   it("should return validation errors field in response body when validation error occurs", async () => {
-    const response = await postUser(invalidUser);
+    const response = await postUser({
+      username: null,
+      email: "user1@email.com",
+      password: "P4ssw0rd",
+    });
     const body = response.body;
     expect(body.validationErrors).not.toBeUndefined();
   });
