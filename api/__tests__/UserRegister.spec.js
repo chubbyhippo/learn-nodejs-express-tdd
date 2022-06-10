@@ -86,13 +86,13 @@ describe("User Registration", () => {
   });
 
   let cases = [
-    ["username", "Username cannot be null."],
-    ["email", "Email cannot be null."],
-    ["password", "Password cannot be null."],
+    ["Username cannot be null.", "username"],
+    ["Email cannot be null.", "email"],
+    ["Password cannot be null.", "password"],
   ];
   it.each(cases)(
-    "when %s is null %s is received",
-    async (field, expectedMessage) => {
+    "should return %s when null %s is received",
+    async (expectedMessage, field) => {
       const user = {
         username: "user1",
         email: "user1@mail.com",
