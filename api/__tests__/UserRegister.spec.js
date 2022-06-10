@@ -85,11 +85,12 @@ describe("User Registration", () => {
     expect(Object.keys(body.validationErrors)).toEqual(["username", "email"]);
   });
 
-  let cases = [
+  const cases = [
     ["Username cannot be null.", "username"],
     ["Email cannot be null.", "email"],
     ["Password cannot be null.", "password"],
   ];
+
   it.each(cases)(
     "should return %s when null %s is received",
     async (expectedMessage, field) => {
