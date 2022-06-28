@@ -107,19 +107,20 @@ describe("User Registration", () => {
   );
 
   it.each`
-    field         | expectedMessage
-    ${"username"} | ${"Username cannot be null."}
-    ${"email"}    | ${"Email cannot be null."}
-    ${"password"} | ${"Password cannot be null."}
+    field         | value    | expectedMessage
+    ${"username"} | ${null}  | ${"Username cannot be null."}
+    ${"username"} | ${"usr"} | ${"Must have min 4 and max 32 characters."}
+    ${"email"}    | ${null}  | ${"Email cannot be null."}
+    ${"password"} | ${null}  | ${"Password cannot be null."}
   `(
     "should return $expectedMessage when $field is null",
-    async ({ field, expectedMessage }) => {
+    async ({ field, value, expectedMessage }) => {
       const user = {
         username: "user1",
         email: "user1@mail.com",
         password: "P4ssw0rd",
       };
-      user[field] = null;
+      user[field] = value;
       const response = await postUser(user);
       const body = response.body;
       expect(body.validationErrors[field]).toBe(expectedMessage);
