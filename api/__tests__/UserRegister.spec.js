@@ -117,6 +117,7 @@ describe("User Registration", () => {
     ${"password"} | ${null}           | ${"Password cannot be null."}
     ${"password"} | ${"P4ssw"}        | ${"Password must be at least 6 characters."}
     ${"password"} | ${"lowercase"}    | ${"Password must contain at least 1 uppercase, 1 lowercase letter and 1 number."}
+    ${"password"} | ${"UPPERCASE"}    | ${"Password must contain at least 1 uppercase, 1 lowercase letter and 1 number."}
   `(
     "should return $expectedMessage when $field is $value",
     async ({ field, value, expectedMessage }) => {
