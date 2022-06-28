@@ -113,6 +113,7 @@ describe("User Registration", () => {
     ${"username"} | ${"a".repeat(33)} | ${"Must have min 4 and max 32 characters."}
     ${"email"}    | ${null}           | ${"Email cannot be null."}
     ${"email"}    | ${"mail.com"}     | ${"Email is not valid."}
+    ${"email"}    | ${"user@mail"}    | ${"Email is not valid."}
     ${"password"} | ${null}           | ${"Password cannot be null."}
   `(
     "should return $expectedMessage when $field is $value",
