@@ -119,6 +119,7 @@ describe("User Registration", () => {
     ${"password"} | ${"lowercase"}    | ${"Password must contain at least 1 uppercase, 1 lowercase letter and 1 number."}
     ${"password"} | ${"UPPERCASE"}    | ${"Password must contain at least 1 uppercase, 1 lowercase letter and 1 number."}
     ${"password"} | ${"123456789"}    | ${"Password must contain at least 1 uppercase, 1 lowercase letter and 1 number."}
+    ${"password"} | ${"UPPERlower"}   | ${"Password must contain at least 1 uppercase, 1 lowercase letter and 1 number."}
   `(
     "should return $expectedMessage when $field is $value",
     async ({ field, value, expectedMessage }) => {
